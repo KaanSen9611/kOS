@@ -2,7 +2,7 @@
 
 > A lightweight browser-based operating system built with pure HTML, CSS, and JavaScript.
 
-![kOS](log3.png)
+![kOS](final.png)
 
 ## ✨ About
 
@@ -62,6 +62,13 @@ Designed and developed as a front-end engineering project, kOS focuses on simpli
 * Smooth interactions
 * Lightweight architecture
 
+### 🧮 Calculator Application
+* Built-in calculator application
+* Supports basic arithmetic operations (+, −, ×, ÷)
+* iOS-inspired button design and layout
+* Real-time input display
+* Runs inside the kOS window system as a draggable application
+* Integrated with desktop app launcher for quick access
 ---
 
 ## 🛠️ Technologies Used
