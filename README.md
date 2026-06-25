@@ -1,10 +1,8 @@
-# 🖥️ kOS
-
-> A lightweight browser-based operating system built with pure HTML, CSS, and JavaScript.
+> the best OS u will se in ur entire life!
 
 ![kOS](final.png)
 
-## ✨ About
+##  About
 
 kOS is a desktop-inspired operating system experience that runs entirely in the browser.
 
@@ -13,107 +11,43 @@ The project recreates key operating system concepts such as windows, application
 Designed and developed as a front-end engineering project, kOS focuses on simplicity, responsiveness, and a clean user experience.
 
 ---
+## Features
+1. a notes app
+* u can write anything in this app
+* + it looks like a real notebook!
+2. about me app
+* sum info about me!
+3. weather app
+* you can see the weather of my hometown!
+* it shows live data with the help of OpenMeteo
+4. calculator
+* MATH
+* I LOVE MATH
 
-## 🚀 Features
-
-### 🖥️ Desktop Environment
-
-* Modern desktop interface
-* Custom wallpaper support
-* Responsive layout
-* Clean and minimal design
-
-### 🪟 Window System
-
-* Open and close applications
-* Draggable windows
-* Independent application instances
-* Smooth desktop workflow
-
-### 📝 Notes Application
-
-* Built-in note-taking application
-* Simple writing experience
-* Desktop-integrated interface
-
-### 🌦️ Weather Application
-
-* Displays local weather information
-* Temperature display
-* Wind speed display
-* Lightweight weather widget
-
-### 👤 About Me Application
-
-* Personal profile window
-* Introduction section
-* Desktop card interface
-
-### 📌 System Bar
-
-* Live clock and date
-* System status area
-* Modern operating-system-inspired navigation
-
-### 🎨 User Interface
-
-* Rounded design language
-* Blur and transparency effects
-* Smooth interactions
-* Lightweight architecture
-
-### 🧮 Calculator Application
-* Built-in calculator application
-* Supports basic arithmetic operations (+, −, ×, ÷)
-* iOS-inspired button design and layout
-* Real-time input display
-* Runs inside the kOS window system as a draggable application
-* Integrated with desktop app launcher for quick access
----
-
-## 🛠️ Technologies Used
+## Languages Used
 
 * HTML5
 * CSS3
 * Vanilla JavaScript
 
-No frameworks were used.
-
----
-
-## 🤖 AI Usage
-
-Artificial Intelligence was used as a development assistant during the creation of kOS.
+## AI Usage
 
 AI-assisted tasks included:
 
 * DevLog
 * TroubleShooting
 * Documentation Support
-* README
 
 All architecture decisions, implementation, integration, testing, and final development work were completed by the developer.
 
----
 
+## Developer
 
----
-
-## 🎯 Project Goal
-
-The goal of kOS is to explore how operating system concepts can be recreated using only web technologies while improving front-end development, software design, and problem-solving skills.
-
----
-
-## 👨‍💻 Developer
-
-Created by **Kaan**
+Created by ME!
 
 Student • Programmer • Aerospace & Engineering Enthusiast
 
 If you enjoy the project, consider giving it a ⭐ on GitHub.
-
----
 
 ### 🚀 kOS — A Desktop Experience Inside Your Browser.
 
