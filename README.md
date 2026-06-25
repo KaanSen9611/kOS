@@ -45,7 +45,3 @@ Created by ME!
 Student • Programmer • Aerospace & Engineering Enthusiast
 
 If you enjoy the project, consider giving it a ⭐ on GitHub.
-
-### 🚀 kOS — A Desktop Experience Inside Your Browser.
-
-
