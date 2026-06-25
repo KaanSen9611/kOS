@@ -83,6 +83,7 @@ AI-assisted tasks included:
 * DevLog
 * TroubleShooting
 * Documentation Support
+* README
 
 All architecture decisions, implementation, integration, testing, and final development work were completed by the developer.
 
