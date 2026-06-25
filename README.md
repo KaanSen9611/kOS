@@ -1,14 +1,11 @@
-> the best OS u will se in ur entire life!
+> the best OS u will see in ur entire life!
 
 ![kOS](final.png)
 
 ##  About
 
-kOS is a desktop-inspired operating system experience that runs entirely in the browser.
-
-The project recreates key operating system concepts such as windows, applications, desktop interactions, widgets, and system utilities while remaining lightweight and easy to deploy.
-
-Designed and developed as a front-end engineering project, kOS focuses on simplicity, responsiveness, and a clean user experience.
+kOS is a little bit of iOS inspired OS that you can run on your browser!
+ISNT THAT FANTASTIC
 
 ---
 ## Features
