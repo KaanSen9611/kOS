@@ -11,7 +11,7 @@ ISNT THAT FANTASTIC
 ## Features
 1. a notes app
 * u can write anything in this app
-* + it looks like a real notebook!
+* plus it looks like a real notebook!
 2. about me app
 * sum info about me!
 3. weather app
