@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>kOS</title>
+</head>
+
+<body style="
+  font-family: Noto Sans, system-ui, sans-serif;
+  height: 100vh;
+  background-image: url(assets/background.png);
+  background-size: cover;
+  margin: 0;
+">
+  <div id="bootScreen">
+
+    <div id="kosLogo">
+      <img src="assets/logo.png">
+      <h1>kOS</h1>
+      <p>Web Based Operating System</p>
+      <p>Version 1.0</p>
+    </div>
+
+
+    <div id="bootText">
+      kOS Bootloader v1.0<br><br>
+    </div>
+
+
+    <div id="progressContainer">
+      <div id="progressBar"></div>
+    </div>
+
+
+    <div id="progressText">
+      0%
+    </div>
+
+  </div>
+  <div id="loginScreen" style="display:none;">
+    <div id="loginBox">
+      <img src="assets/logo.png">
+      <h1>kOS</h1>
+      <p id="loginTitle">
+        Login
+      </p>
+      <input id="usernameInput" placeholder="Username">
+      <input id="passwordInput" type="password" placeholder="Password">
+      <button id="loginButton">
+        Login
+      </button>
+      <button id="createUserButton">
+        Create User
+      </button>
+      <p id="loginStatus"></p>
+    </div>
+  </div>
+  <!-- TOP BAR (GLASS) -->
+  <div style="
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+  ">
+    <p id="windowopen" style="
+      cursor: pointer;
+      margin-left: 16px;
+      font-weight: 700;
+      background-color: rgba(255,255,255,0.15);
+      padding: 4px 12px;
+      border-radius: 16px;
+    ">
+      kOS
+    </p>
+    <p style="
+      background-color: rgba(255,255,255,0.15);
+      padding: 4px 12px;
+      border-radius: 16px;
+    ">
+      🔥 This is AwEsOmE 🔥
+    </p>
+    <p id="timeElement" style="
+      margin-right: 16px;
+      background-color: rgba(255,255,255,0.15);
+      padding: 4px 12px;
+      border-radius: 16px;
+    ">
+      Time
+    </p>
+  </div>
+  <div id="window" style="
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  ">
+    <div id="windowheader" style="
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+
+      display: flex;
+      align-items: center;
+    ">
+      <div id="windowclose" style="
+        width: 22px;
+        height: 22px;
+        background: rgba(255, 59, 59, 0.25);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 59, 59, 0.4);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        user-select: none;
+        color: white;
+        font-weight: bold;
+        font-size: 14px;
+      ">
+        ✕
+      </div>
+    </div>
+    <div style="
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(20px);
+      width: 360px;
+      padding: 16px;
+    ">
+      <img src="assets/logo.png" style="width:64px;height:64px;border-radius:32px;">
+      <h1 style="margin:4px;">kOS</h1>
+      <p style="margin:0;">
+        <dfn>kOS</dfn> is the <abbr title="yes, it is">BEST </abbr><b>OS</b>
+      </p>
+    </div>
+  </div>
+  <div id="notes" style="
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    display: none;
+  ">
+    <div id="notesheader" style="
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+    ">
+      <div id="notesclose" style="
+        width: 22px;
+        height: 22px;
+        background: rgba(255, 59, 59, 0.25);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 59, 59, 0.4);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: cEnter;
+        cursor: pointer;
+        user-select: none;
+        color: white;
+        font-weight: bold;
+        font-size: 14px;
+      ">
+        ✕
+      </div>
+    </div>
+    <div style="
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(20px);
+      width: 360px;
+      padding: 16px;
+      background-image: url(notes.png);
+      background-size: cover;
+    ">
+      <h1 style="margin:4px; text-align: center; color: red;">Notes</h1>
+      <textarea style="
+        width:100%;
+        height:250px;
+        resize:none;
+        border:none;
+        outline:none;
+        background:transparent;
+        font-family:inherit;
+        font-size:16px;
+        margin-left: 50px;
+        " placeholder="Write something..."></textarea>
+    </div>
+  </div>
+  <div id="about" style="
+  position: absolute;
+  left: 60%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(255, 0, 0, 0.35);
+  display: none;
+">
+    <div id="aboutheader" style="
+    padding: 10px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+  ">
+      <div id="aboutclose" style="
+      width: 22px;
+      height: 22px;
+      background: rgba(255, 59, 59, 0.25);
+      border: 1px solid rgba(255, 59, 59, 0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+    ">
+        ✕
+      </div>
+    </div>
+    <div style="
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px);
+    width: 400px;
+    padding: 16px;
+  ">
+      <h1>About Me</h1>
+      <p>Hello! I'm Kaan.</p>
+      <p>I love programming, aerospace and engineering.</p>
+      <p>Welcome to kOS.</p>
+    </div>
+  </div>
+  <div id="weather" style="
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+  z-index:10;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,0.35);
+  display:none;
+">
+    <div id="weatherheader" style="
+    padding:10px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,0.2);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    color:rgb(255, 255, 255);
+  ">
+      <span>Weather</span>
+      <div id="weatherclose" style="
+      width:22px;height:22px;
+      border-radius:50%;
+      background:rgba(255,59,59,0.25);
+      border:1px solid rgba(255,59,59,0.4);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      font-weight:bold;
+    ">✕</div>
+    </div>
+    <div style="
+    background:rgba(0, 89, 255, 0.92);
+    width:320px;
+    padding:16px;
+  ">
+      <h2 style="color: #fff;">Local Weather</h2>
+      <div style="color:white;">
+        🌡️ Temp: <span id="temp">-</span> °C
+      </div>
+      <div style="color:white;">
+        💨 Wind: <span id="wind">-</span> km/h
+      </div>
+    </div>
+  </div>
+  <div id="calculator" class="window" style="display:none;">
+    <div class="window-header" style="padding:10px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,0.2);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    color:rgb(255, 255, 255);
+  ">
+      <div id="calcclose" style="
+      width:22px;height:22px;
+      border-radius:50%;
+      background:rgba(255,59,59,0.25);
+      border:1px solid rgba(255,59,59,0.4);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      font-weight:bold;
+    ">✕</div>
+      <span>Calculator</span>
+    </div>
+    <div style="padding:15px;">
+      <input id="calcDisplay" type="text" readonly
+        style="width:93%;padding:10px;font-size:20px;margin-bottom:10px; background: #fff;">
+      <div class="calc-buttons">
+        <button onclick="addCalc('7')">7</button>
+        <button onclick="addCalc('8')">8</button>
+        <button onclick="addCalc('9')">9</button>
+        <button class="op" onclick="addCalc('/')">÷</button>
+
+        <button onclick="addCalc('4')">4</button>
+        <button onclick="addCalc('5')">5</button>
+        <button onclick="addCalc('6')">6</button>
+        <button class="op" onclick="addCalc('*')">×</button>
+
+        <button onclick="addCalc('1')">1</button>
+        <button onclick="addCalc('2')">2</button>
+        <button onclick="addCalc('3')">3</button>
+        <button class="op" onclick="addCalc('-')">−</button>
+
+        <button onclick="addCalc('0')">0</button>
+        <button onclick="addCalc('.')">.</button>
+        <button class="eq" onclick="calculate()">=</button>
+        <button class="op" onclick="addCalc('+')">+</button>
+
+        <button onclick="clearCalc()" style="grid-column: span 4;">
+          Clear
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="terminal" style="
+  position: absolute;
+  left: 60%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  display: none;
+">
+    <div id="terminalheader" style="
+    padding: 10px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+  ">
+      <div id="terminalclose" style="
+      width: 22px;
+      height: 22px;
+      background: rgba(255, 59, 59, 0.25);
+      border: 1px solid rgba(255, 59, 59, 0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+    ">
+        ✕
+      </div>
+    </div>
+    <div style="
+    background: rgba(0,0,0,0.92);
+    backdrop-filter: blur(20px);
+    width: 400px;
+    padding: 16px;
+    color: #00ff66;
+    font-family: monospace;
+  ">
+      <h1 style="margin:4px;">Terminal</h1>
+      <div id="terminalOutput">
+        kOS Terminal v1.0<br>
+        Type "help" for commands.
+      </div>
+      <div style="display:flex; margin-top:10px;">
+        <span id="terminalPrompt">
+          user@root >
+        </span>
+        <input id="terminalInput" style="
+        flex:1;
+        background:transparent;
+        border:none;
+        outline:none;
+        color:#00ff66;
+        font-family:monospace;
+        margin-left:5px;
+      ">
+      </div>
+    </div>
+  </div>
+  <div id="settings" style="
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+  z-index:10;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,0.35);
+  display:none;
+">
+    <div id="settingsheader" style="
+  padding:10px;
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,0.2);
+  display:flex;
+  align-items:center;
+">
+
+  <div id="settingsclose" style="
+      width:22px;
+      height:22px;
+
+      background:rgba(255,59,59,0.25);
+      border:1px solid rgba(255,59,59,0.4);
+
+      border-radius:50%;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      cursor:pointer;
+
+      color:white;
+      font-weight:bold;
+      ">
+        ✕
+      </div>
+    </div>
+    <div style="
+    background:rgb(105, 105, 105);
+    width:400px;
+    padding:20px;
+    ">
+      <h1>Settings</h1>
+      <h3>User</h3>
+      <p>
+        Username:
+        <span id="settingsUser">
+          -
+        </span>
+      </p>
+      <h3>System</h3>
+      <p>
+        OS: kOS Web Based OS
+      </p>
+      <p>
+        Version: 1.0
+      </p>
+      <h3>Wallpaper</h3>
+      <button onclick="changeWallpaper('assets/background.png')">
+        Default
+      </button>
+      <button onclick="changeWallpaper('assets/space.jpg')">
+        Space
+      </button>
+      <button onclick="changeWallpaper('assets/city.jpg')">
+        City
+      </button>
+    </div>
+  </div>
+  <style>
+    #loginScreen {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: monospace;
+      z-index: 99998;
+    }
+    #loginBox {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+    }
+    #loginBox img {
+      width: 90px;
+      border-radius: 20px;
+    }
+    #loginBox input {
+      display: block;
+      width: 250px;
+      padding: 12px;
+      margin: 10px auto;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+    }
+    #loginButton,
+    #createUserButton {
+      padding: 12px 40px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 5px;
+      font-family: monospace;
+      background: white;
+      color: black;
+      transition: 0.2s;
+    }
+    #loginButton:hover,
+    #createUserButton:hover {
+      transform: scale(1.05);
+      background: #00ff66;
+      color: black;
+    }
+    #loginStatus {
+      color: #00ff66;
+    }
+    #kosLogo {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    #kosLogo img {
+      width: 90px;
+      height: 90px;
+      border-radius: 22px;
+    }
+    #kosLogo h1 {
+      margin: 10px 0 0;
+      font-size: 40px;
+    }
+    #kosLogo p {
+      margin: 4px;
+      color: #aaa;
+    }
+    #progressContainer {
+      margin-top: 30px;
+      width: 400px;
+      height: 20px;
+      border: 1px solid #00ff66;
+    }
+    #progressBar {
+      height: 100%;
+      width: 0%;
+      background: #00ff66;
+      transition: 0.3s;
+    }
+    #progressText {
+      margin-top: 10px;
+    }
+    #bootScreen {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      color: #00ff66;
+      font-family: monospace;
+      padding: 40px;
+      font-size: 18px;
+      z-index: 99999;
+    }
+    #bootText {
+      white-space: pre-line;
+    }
+    #calculator .window-header {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+    #calcDisplay {
+      background: #f2f2f2;
+      border: none;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 28px;
+      text-align: right;
+      color: #000;
+    }
+    .calc-buttons button {
+      padding: 16px;
+      font-size: 18px;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+    .calc-buttons button:not(.op):not(.eq) {
+      background: #e5e5ea;
+      color: #000;
+    }
+    .calc-buttons .op {
+      background: #ff9500;
+      color: white;
+    }
+    .calc-buttons .eq {
+      background: #ff7a00;
+      color: white;
+    }
+    .window {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+    .calc-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+    }
+    .calc-buttons button {
+      padding: 12px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .appIcon {
+      text-align: center;
+      padding: 16px;
+      width: fit-content;
+      border-radius: 12px;
+      filter: drop-shadow(0 0 8px black);
+    }
+    .selected {
+      background: rgba(255, 255, 255, 0.15);
+    }
+  </style>
+  <div class="desktopApp" id="notesApp" style="padding-top:64px; width:fit-content; cursor:pointer;">
+    <div class="appIcon">
+      <img src="assets/logo1.jpg" style="width:64px;height:64px;border-radius:16px;">
+      <p style="margin:0;color:#fff;">Notes</p>
+    </div>
+  </div>
+
+  <div class="desktopApp" id="aboutApp" style="padding-top:16px; width:fit-content; cursor:pointer;">
+    <div class="appIcon">
+      <img src="assets/logo2.webp" style="width:64px;height:64px;border-radius:16px;">
+      <p style="margin:0;color:#fff;">About Me</p>
+    </div>
+  </div>
+  
+  <div class="desktopApp" id="weatherApp" style="padding-top:16px; width:fit-content; cursor:pointer;">
+    <div class="appIcon">
+      <img src="assets/weather.webp" style="width:64px;height:64px;border-radius:16px;">
+      <p style="margin:0;color:#fff;">Weather</p>
+    </div>
+  </div>
+
+  <div class="desktopApp" id="calcApp" style="padding-top:16px; width:fit-content; cursor:pointer;"
+    onclick="openCalculator()">
+    <div class="appIcon">
+      <img src="assets/calc.webp" style="width:64px;height:64px;border-radius:16px;">
+      <p style="margin:0;color:#fff;">Calculator</p>
+    </div>
+  </div>
+
+  <div class="desktopApp" id="terminalApp" style="padding-top:16px; width:fit-content; cursor:pointer;">
+    <div class="appIcon">
+      <img src="assets/terminal.png" style="width:64px;height:64px;border-radius:16px;">
+      <p style="margin:0;color:#fff;">Terminal</p>
+    </div>
+  </div>
+  
+  <div class="desktopApp" id="settingsApp" style="padding-top:16px; width:fit-content; cursor:pointer;">
+    <div class="appIcon">
+      <img src="assets/settings.png" style="width:64px;height:64px;border-radius:16px;">
+      <p style="margin:0;color:#fff;">
+        Settings
+      </p>
+    </div>
+  </div>
+  <script src="drag.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
